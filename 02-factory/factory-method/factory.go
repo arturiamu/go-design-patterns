@@ -1,13 +1,11 @@
-package factory
+package factory_method
 
-// IRuleConfigParser IRuleConfigParser
 type IRuleConfigParser interface {
 	Parse(data []byte)
 }
 
 // jsonRuleConfigParser jsonRuleConfigParser
-type jsonRuleConfigParser struct {
-}
+type jsonRuleConfigParser struct{}
 
 // Parse Parse
 func (J jsonRuleConfigParser) Parse(data []byte) {
@@ -15,15 +13,13 @@ func (J jsonRuleConfigParser) Parse(data []byte) {
 }
 
 // yamlRuleConfigParser yamlRuleConfigParser
-type yamlRuleConfigParser struct {
-}
+type yamlRuleConfigParser struct{}
 
 // Parse Parse
 func (Y yamlRuleConfigParser) Parse(data []byte) {
 	panic("implement me")
 }
 
-// NewIRuleConfigParser NewIRuleConfigParser
 func NewIRuleConfigParser(t string) IRuleConfigParser {
 	switch t {
 	case "json":

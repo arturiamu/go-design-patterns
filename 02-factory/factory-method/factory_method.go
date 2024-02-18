@@ -1,4 +1,4 @@
-package factory
+package factory_method
 
 // IRuleConfigParserFactory 工厂方法接口
 type IRuleConfigParserFactory interface {
@@ -6,15 +6,19 @@ type IRuleConfigParserFactory interface {
 }
 
 // yamlRuleConfigParserFactory yamlRuleConfigParser 的工厂类
-type yamlRuleConfigParserFactory struct{}
+type yamlRuleConfigParserFactory struct {
+}
 
+// CreateParser CreateParser
 func (y yamlRuleConfigParserFactory) CreateParser() IRuleConfigParser {
 	return yamlRuleConfigParser{}
 }
 
 // jsonRuleConfigParserFactory jsonRuleConfigParser 的工厂类
-type jsonRuleConfigParserFactory struct{}
+type jsonRuleConfigParserFactory struct {
+}
 
+// CreateParser CreateParser
 func (j jsonRuleConfigParserFactory) CreateParser() IRuleConfigParser {
 	return jsonRuleConfigParser{}
 }
